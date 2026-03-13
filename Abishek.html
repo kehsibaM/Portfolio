@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abishek Murugan | MERN Full Stack Developer</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --accent-color: #3b82f6;
+        --dark-color: #1e293b;
+        --light-color: #f8fafc;
+        --text-color: #334155;
+        --border-radius: 12px;
+        --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-color);
+        line-height: 1.6;
+        background-color: #f9fafb;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        color: var(--dark-color);
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 2.5rem;
+        padding-bottom: 0.75rem;
+        text-align: center;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        border-radius: 2px;
+      }
+
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        padding: 1rem 0;
+        transition: var(--transition);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color) !important;
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 0.5rem;
+        color: var(--dark-color) !important;
+        transition: var(--transition);
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary-color) !important;
+      }
+
+      .hero-section {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        padding: 6rem 0 4rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .hero-text {
+        flex: 1;
+        min-width: 300px;
+        padding-right: 2rem;
+      }
+
+      .hero-image {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .profile-img-container {
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+      }
+
+      .profile-img-placeholder {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: #e0f2fe;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--dark-color);
+        font-weight: 600;
+        text-align: center;
+        padding: 2rem;
+        border: 5px solid white;
+      }
+
+      .profile-img-placeholder i {
+        font-size: 5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .hero-title {
+        font-size: 3.2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--accent-color);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .contact-item i {
+        color: var(--primary-color);
+        font-size: 1.2rem;
+      }
+
+      .section-padding {
+        padding: 5rem 0;
+      }
+
+      .card {
+        border: none;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-body {
+        padding: 1.8rem;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 2rem;
+        padding-bottom: 2rem;
+        border-left: 2px solid var(--primary-color);
+      }
+
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -0.5rem;
+        top: 0;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+      }
+
+      .timeline-date {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+
+      .skill-badge {
+        display: inline-block;
+        background-color: #e0f2fe;
+        color: var(--primary-color);
+        padding: 0.5rem 1.2rem;
+        border-radius: 30px;
+        margin: 0.3rem;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .skill-badge:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .project-card {
+        height: 100%;
+      }
+
+      .project-img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .tech-tag {
+        background-color: #f1f5f9;
+        color: var(--dark-color);
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.85rem;
+      }
+
+      .footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        font-size: 1.2rem;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        transition: var(--transition);
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-5px);
+      }
+
+      /* Animation for sections */
+      .section-hidden {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .section-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .hero-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-text {
+          padding-right: 0;
+          margin-bottom: 3rem;
+        }
+
+        .contact-info {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.4rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.3rem;
+        }
+
+        .section-padding {
+          padding: 3rem 0;
+        }
+
+        .profile-img-container {
+          width: 280px;
+          height: 280px;
+        }
+
+        .profile-img-placeholder {
+          width: 260px;
+          height: 260px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .profile-img-container {
+          width: 240px;
+          height: 240px;
+        }
+
+        .profile-img-placeholder {
+          width: 220px;
+          height: 220px;
+        }
+
+        .profile-img-placeholder i {
+          font-size: 3.5rem;
+        }
+      }
+      .light-text {
+        color: #708090;
+      }
+      .paddingNeo{
+        margin-top:2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Abishek Murugan</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">Abishek Murugan</h1>
+            <h2 class="hero-subtitle">MERN Full Stack Developer</h2>
+            <p class="hero-description">
+              Enthusiastic MERN Full Stack Developer  with solid
+              knowledge of JavaScript, React.js, HTML, CSS. Skilled in building
+              responsive web apps,Node.js,Express.js, Mongo DB, and RESTful
+              APIs.
+            </p>
+
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>TamilNadu,India</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+91 9003475263</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>abishekm1107@gmail.com</span>
+              </div>
+            </div>
+
+            <a href="#about" class="btn btn-primary btn-lg mt-3"
+              >Explore My Portfolio <i class="fas fa-arrow-down ms-2"></i
+            ></a>
+          </div>
+
+          <div class="hero-image">
+            <div class="profile-img-container">
+              <div class="profile-img-placeholder">
+                <i class="fas fa-user-circle"></i>
+                <span>Upload Your Photo Here</span>
+                <small class="mt-2">Click to upload</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding section-hidden">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div
+                      class="profile-img-container"
+                      style="width: 250px; height: 250px; margin: 0 auto"
+                    >
+                      <div
+                        class="profile-img-placeholder"
+                        style="width: 230px; height: 230px"
+                      >
+                        <i
+                          class="fas fa-user-circle"
+                          style="font-size: 4rem"
+                        ></i>
+                        <span style="font-size: 0.9rem">Your Photo</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <h3 class="mb-3">Professional Summary</h3>
+                    <p class="mb-4">
+                      I am a passionate MERN Full Stack Developer dedicated to
+                      building scalable and responsive web applications. I
+                      specialize in the JavaScript ecosystem, with expertise in
+                      React.js for modern frontends and Node.js/Express for
+                      robust backend architecture. I have hands-on experience
+                      designing RESTful APIs and managing data with MongoDB,
+                      ensuring seamless end-to-end integration and
+                      high-performance user experiences.
+                    </p>
+
+                    <h5 class="mb-2">Key Strengths:</h5>
+                    <ul class="mb-4">
+                      <li>Quick learner with strong problem-solving skills</li>
+                      <li>
+                        Focus on creating user-friendly software solutions
+                      </li>
+                      <li>
+                        Experience working in team environments with
+                        professional workflows
+                      </li>
+                      <li>
+                        Ability to handle both frontend and backend development
+                        tasks
+                      </li>
+                    </ul>
+
+                    <div class="row mt-4">
+                      <div class="col-md-6">
+                        <h5>
+                          <i class="fas fa-language text-primary me-2"></i
+                          >Languages Known
+                        </h5>
+                        <p>Tamil, English</p>
+                      </div>
+                      <div class="col-md-6">
+                        <h5>
+                          <i class="fas fa-certificate text-primary me-2"></i
+                          >Certifications
+                        </h5>
+                        <p>MERN Fullstack Development Internship</p>
+                        <p class="light-text">
+                          BraceBits IT solutions , Kanyakumari , TamilNadu
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section-padding bg-light section-hidden">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="timeline">
+              <!-- Education Item 1 -->
+              <div class="timeline-item">
+                <span class="timeline-date">Oct 2020 – Jun 2024</span>
+                <h4>B.E - Electronics and Communication Engineering</h4>
+                <h5 class="text-primary">
+                  Rohini College of Engineering and Technology, Kanyakumari
+                </h5>
+                <!-- <p class="mb-2">Graduated with a CGPA of 77.60%</p> -->
+              </div>
+
+              <!-- Education Item 2 -->
+              <div class="timeline-item">
+                <span class="timeline-date">Jun 2019 – Apr 2020</span>
+                <h4>Higher Secondary Certificate (HSC)</h4>
+                <h5 class="text-primary">
+                  LMS Higher Secondary School,
+                  Palliyadi
+                </h5>
+                <p class="mb-2">Completed with 70.10%</p>
+              </div>
+
+              <!-- Education Item 3 -->
+              <div class="timeline-item">
+                <span class="timeline-date">Jun 2017 – Apr 2018</span>
+                <h4>Secondary School Leaving Certificate (SSLC)</h4>
+                <h5 class="text-primary">
+                  LMS Higher Secondary School,
+                  Palliyadi
+                </h5>
+                <p class="mb-0">Completed with 76.80%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience/Internship Section -->
+    <section id="experience" class="section-padding section-hidden">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-3"
+                >
+                  <div>
+                    <h3 class="mb-1">Frontend Web Development Intern</h3>
+                    <h5 class="text-primary mb-3">
+                      BraceBit IT solutions , Marthandam , Kanyakumari District , TamilNadu
+                    </h5>
+                  </div>
+                  
+                  <span class="badge bg-primary fs-6">Oct 2024</span>
+                </div>
+
+                <p>
+                  Gained hands-on experience building responsive front-end
+                  applications using HTML, CSS, and JavaScript. Improved skills
+                  in UI design, debugging, and performance optimization.
+                </p>
+
+                <h5 class="mt-4 mb-3">Key Responsibilities & Achievements:</h5>
+                <ul>
+                  <li>
+                    Developed responsive web interfaces using HTML, CSS, and
+                    JavaScript
+                  </li>
+                  <li>
+                    Collaborated in a team environment following professional
+                    workflows and coding standards
+                  </li>
+                  <li>
+                    Enhanced debugging and performance optimization skills
+                  </li>
+                  <li>
+                    Worked on real-world projects with a focus on UI/UX design
+                    principles
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- ////second stanza // -->
+        <div class="row justify-content-center ">
+          <div class="col-lg-8 paddingNeo">
+            <div class="card">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-10 "
+                >
+                  <div>
+                    <h3 class="mb-1">Full Stack Developer (MERN) </h3>
+                    <h5 class="text-primary mb-3">
+                      BraceBit IT solutions , Marthandam , Kanyakumari District , TamilNadu
+                    </h5>
+                  </div>
+                  
+                  <span class="badge bg-primary fs-6">Jan 2025  - Jan 2026</span>
+                </div>
+
+                <p>
+                  Building on a <mark class="text-primary-">one-year tenure as a MERN Full Stack Developer at Brace Bits IT Solutions </mark> , I have successfully navigated the full software development life cycle in a fast-paced Agile environment.
+                   I specialized in transitioning complex requirements into scalable React front-end architectures and robust Node.js back-end services.
+                    My experience is rooted in the consistent delivery of production-ready code, where I focused on optimizing MongoDB data structures and refining RESTful APIs to ensure long-term system stability and seamless user experiences.
+                </p>
+
+                <!-- <h5 class="mt-4 mb-3">Key Responsibilities & Achievements:</h5>
+                <ul>
+                  <li>
+                    Developed responsive web interfaces using HTML, CSS, and
+                    JavaScript
+                  </li>
+                  <li>
+                    Collaborated in a team environment following professional
+                    workflows and coding standards
+                  </li>
+                  <li>
+                    Enhanced debugging and performance optimization skills
+                  </li>
+                  <li>
+                    Worked on real-world projects with a focus on UI/UX design
+                    principles
+                  </li>
+                </ul> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-light section-hidden">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="row g-4">
+          <!-- Project 1 -->
+          <div class="col-lg-6">
+            <div class="card project-card">
+              <div
+                class="card-img-top"
+                style="
+                  height: 200px;
+                  background: linear-gradient(135deg, #a5b4fc, #818cf8);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                "
+              >
+                <div class="text-center p-4">
+                  <i class="fas fa-baby" style="font-size: 4rem"></i>
+                  <h3 class="mt-3">Aararo 360</h3>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">
+                  Maternal & Childcare Guidance Platform
+                </h5>
+                <p class="card-text">
+                  Team project built during a Codeathon. Worked with a teammate
+                  handling the frontend while focusing on backend development
+                  using Java Spring Boot and MySQL.
+                </p>
+                <p class="card-text">
+                  Designed RESTful APIs for modules like pregnancy, nutrition,
+                  and health tracking, ensuring secure and reliable data
+                  handling.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">Java</span>
+                  <span class="tech-tag">Spring Boot</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">REST APIs</span>
+                </div>
+                <div class="mt-3">
+                  <small class="text-muted">Completed: November 2025</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="col-lg-6">
+            <div class="card project-card">
+              <div
+                class="card-img-top"
+                style="
+                  height: 200px;
+                  background: linear-gradient(135deg, #34d399, #10b981);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                "
+              >
+                <div class="text-center p-4">
+                  <i class="fas fa-hands-helping" style="font-size: 4rem"></i>
+                  <h3 class="mt-3">GiveLoop</h3>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Donation Platform for Old Items</h5>
+                <p class="card-text">
+                  Developed a web app for donating and claiming old items.
+                  Implemented user registration, login, and donor/receiver
+                  roles.
+                </p>
+                <p class="card-text">
+                  Built a responsive UI using HTML and CSS, ensuring easy
+                  navigation and clear item categorization.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">CSS</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">Java</span>
+                </div>
+                <div class="mt-3">
+                  <small class="text-muted">Completed: August 2025</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding section-hidden">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title mb-4">
+                  <i class="fas fa-code text-primary me-2"></i>Programming
+                  Languages
+                </h4>
+                <div class="skills-container">
+                  <span class="skill-badge">HTML</span>
+                  <span class="skill-badge">CSS</span>
+                  <span class="skill-badge">JavaScript</span>
+                  <span class="skill-badge">Node.js</span>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title mb-4">
+                  <i class="fas fa-cogs text-primary me-2"></i>Frameworks &
+                  Tools
+                </h4>
+                <div class="skills-container">
+                  <span class="skill-badge">VS Code</span>
+                  <span class="skill-badge">Express.js</span>
+                  <span class="skill-badge">Mongo DB</span>
+                  <span class="skill-badge">Postman</span>
+                  <span class="skill-badge">Tailwind CSS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title mb-4">
+                  <i class="fas fa-star text-primary me-2"></i>Additional Skills
+                  & Certifications
+                </h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h5>Soft Skills</h5>
+                    <ul>
+                      <li>Problem Solving</li>
+                      <li>Quick Learning Ability</li>
+                      <li>Team Collaboration</li>
+                      <li>Attention to Detail</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h5>Certifications</h5>
+                    <ul>
+                    <li>MERN Fullstack Development Internship</li>
+                        <p class="light-text">
+                          BraceBits IT solutions , Kanyakumari , TamilNadu
+                        </p>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <h2 class="mb-4">Let's Connect</h2>
+        <p class="mb-4">
+          I'm always open to discussing new opportunities and interesting
+          projects.
+        </p>
+
+        <div class="contact-info justify-content-center mb-4">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>abishekm1107@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+91 9003475263</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>TamilNadu, India</span>
+          </div>
+        </div>
+
+        <p class="mt-5">
+          &copy; <span id="currentYear"></span> Abishek Murugan. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // Back to Top Button
+      const backToTopButton = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add("active");
+        } else {
+          backToTopButton.classList.remove("active");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.pageYOffset > 50) {
+          navbar.style.padding = "0.5rem 0";
+          navbar.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
+        } else {
+          navbar.style.padding = "1rem 0";
+          navbar.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.05)";
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+
+            // Update active nav link
+            document.querySelectorAll(".nav-link").forEach((link) => {
+              link.classList.remove("active");
+            });
+            this.classList.add("active");
+          }
+        });
+      });
+
+      // Section reveal animation on scroll
+      const sections = document.querySelectorAll(".section-hidden");
+
+      const revealSection = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("section-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const sectionObserver = new IntersectionObserver(revealSection, {
+        root: null,
+        threshold: 0.1,
+      });
+
+      sections.forEach((section) => {
+        sectionObserver.observe(section);
+      });
+
+      // Photo upload simulation
+      document
+        .querySelectorAll(".profile-img-placeholder")
+        .forEach((placeholder) => {
+          placeholder.addEventListener("click", function () {
+            // In a real implementation, this would trigger a file input
+            // For demo purposes, we'll just change the icon and text
+            const icon = this.querySelector("i");
+            const text = this.querySelector("span");
+            const subtext = this.querySelector("small");
+
+            icon.className = "fas fa-check-circle";
+            icon.style.color = "#10b981";
+            text.textContent = "Photo Ready";
+            subtext.textContent = "Click to change";
+
+            // Show a brief confirmation message
+            const originalText = text.textContent;
+            text.textContent = "Photo Uploaded!";
+            setTimeout(() => {
+              text.textContent = originalText;
+            }, 1500);
+          });
+        });
+    </script>
+  </body>
+</html>
